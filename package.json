@@ -1,0 +1,26 @@
+{
+  "name": "js-crypto-converter",
+  "version": "1.0.0",
+  "description": "Bundle of converter to convert web crypto objects and arrays into readable and saveable types",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lukas220300/js-crypto-converter.git"
+  },
+  "keywords": [
+    "Crypto",
+    "TypeScript",
+    "Converter",
+    "Convert",
+    "WebCrypto"
+  ],
+  "author": "Lukas Schönbeck",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Lukas220300/js-crypto-converter/issues"
+  },
+  "homepage": "https://github.com/Lukas220300/js-crypto-converter#readme"
+}
