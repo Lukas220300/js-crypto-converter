@@ -26,7 +26,7 @@ export class ByteConverter {
         return new TextEncoder().encode(text)
     }
 
-    public byteArrayToString(byteArray: ArrayBuffer | Uint8Array): string {
+    public static byteArrayToString(byteArray: ArrayBuffer | Uint8Array): string {
         return new TextDecoder().decode(byteArray)
     }
 }
