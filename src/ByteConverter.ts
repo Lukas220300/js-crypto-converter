@@ -22,7 +22,7 @@ export class ByteConverter {
         return ByteConverter.stringToUint8Array(message, base64Encoded)
     }
 
-    public static stringToUint8Array(text: string, base64Encoded: boolean = true): Uint8Array {
+    public static stringToUint8Array(text: string, base64Encoded: boolean = false): Uint8Array {
         if(base64Encoded) {
             return this.base64StringToUint8Array(text)
         } else {
