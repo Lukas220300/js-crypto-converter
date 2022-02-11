@@ -18,7 +18,7 @@ export class ByteConverter {
         return new Uint8Array(messageValue)
     }
 
-    public static encodeString(message: string, base64Encoded: boolean = true): Uint8Array {
+    public static encodeString(message: string, base64Encoded: boolean = false): Uint8Array {
         return ByteConverter.stringToUint8Array(message, base64Encoded)
     }
 
@@ -30,7 +30,7 @@ export class ByteConverter {
         }
     }
 
-    public static byteArrayToString(byteArray: ArrayBuffer | Uint8Array, base64Encoded:boolean = true): string {
+    public static byteArrayToString(byteArray: ArrayBuffer | Uint8Array, base64Encoded:boolean = false): string {
         if(base64Encoded) {
             // @ts-ignore
             if(byteArray[Symbol.toStringTag] === 'ArrayBuffer') {
