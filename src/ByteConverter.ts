@@ -18,25 +18,15 @@ export class ByteConverter {
         return new Uint8Array(messageValue)
     }
 
-    public static encodeString(message: string, jsonEncoded: boolean = false): Uint8Array {
-        return ByteConverter.stringToUint8Array(message, jsonEncoded)
+    public static encodeString(message: string): Uint8Array {
+        return ByteConverter.stringToUint8Array(message)
     }
 
-    public static stringToUint8Array(text: string, jsonEncoded: boolean = false): Uint8Array {
-        if(jsonEncoded) {
-            const decoded = JSON.parse(text)
-            // @ts-ignore
-            return Uint8Array.from([...Object.values(decoded)])
-        } else {
-            return new TextEncoder().encode(text)
-        }
+    public static stringToUint8Array(text: string): Uint8Array {
+        return new TextEncoder().encode(text)
     }
 
     public static byteArrayToString(byteArray: ArrayBuffer | Uint8Array): string {
-        // @ts-ignore
-        if(byteArray[Symbol.toStringTag] === 'ArrayBuffer') {
-            byteArray = new Uint8Array(byteArray)
-        }
-        return JSON.stringify(byteArray)
+        return new TextDecoder().decode(byteArray)
     }
 }
