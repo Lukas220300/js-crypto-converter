@@ -18,15 +18,26 @@ export class ByteConverter {
         return new Uint8Array(messageValue)
     }
 
-    public static encodeString(message: string): Uint8Array {
-        return ByteConverter.stringToUint8Array(message)
+    public static encodeString(message: string, base64Encoded: boolean = true): Uint8Array {
+        return ByteConverter.stringToUint8Array(message, base64Encoded)
     }
 
-    public static stringToUint8Array(text: string): Uint8Array {
-        return new TextEncoder().encode(text)
+    public static stringToUint8Array(text: string, base64Encoded: boolean = true): Uint8Array {
+        if(base64Encoded) {
+            return this.base64StringToUint8Array(text)
+        } else {
+            return new TextEncoder().encode(text)
+        }
     }
 
-    public static byteArrayToString(byteArray: ArrayBuffer | Uint8Array): string {
+    public static byteArrayToString(byteArray: ArrayBuffer | Uint8Array, base64Encoded:boolean = true): string {
+        if(base64Encoded) {
+            // @ts-ignore
+            if(byteArray[Symbol.toStringTag] === 'ArrayBuffer') {
+                byteArray = new Uint8Array(byteArray)
+            }
+            return this.Uint8ArrayToBase64String(byteArray as Uint8Array)
+        }
         return new TextDecoder().decode(byteArray)
     }
 }
